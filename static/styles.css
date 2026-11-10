@@ -1,0 +1,10 @@
+:root { color-scheme: light; font: 100%/1.55 system-ui, sans-serif; }
+body { margin: 0; background: #edf2f6; color: #172f41; }
+main { max-width: 46rem; margin: 2rem auto; padding: 1.5rem; background: white; }
+h1 { line-height: 1.1; }
+a { color: #145375; }
+nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+.eyebrow { font-weight: bold; color: #34627a; }
+.error { color: #962b29; }
+label { display: block; margin: .75rem 0; }
+input, button { padding: .5rem; font: inherit; }
