@@ -1,5 +1,6 @@
 """ЛР №6, вариант 3: Flask, шаблоны и вход в личный кабинет."""
 
+import argparse
 import os
 import secrets
 
@@ -91,4 +92,20 @@ app = create_app()
 
 
 if __name__ == "__main__":
-    app.run()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--demo", action="store_true", help="запустить сайт с учебным пользователем")
+    args = parser.parse_args()
+
+    local_app = app
+    if args.demo:
+        username = "student"
+        password = "lab6-demo"
+        local_app = create_app({
+            "SECRET_KEY": secrets.token_hex(32),
+            "LAB_USER": username,
+            "LAB_PASSWORD_HASH": generate_password_hash(password),
+            "SESSION_COOKIE_SECURE": False,
+        })
+        print(f"Учебный пользователь — {username}, пароль — {password}")
+
+    local_app.run(host="127.0.0.1")
