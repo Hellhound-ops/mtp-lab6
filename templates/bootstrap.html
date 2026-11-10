@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Bootstrap{% endblock %}
+{% block styles %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+{% endblock %}
+{% block content %}
+  <main class="container py-5">
+    <h1 class="mb-4">Страница на Bootstrap</h1>
+    <div class="row g-3">
+      <div class="col-12 col-md-6">
+        <div class="card h-100"><div class="card-body">
+          <h2 class="h5 card-title">Каталог</h2>
+          <p class="card-text">Данные подставляются в шаблон Jinja2 на сервере.</p>
+          <a class="btn btn-primary" href="{{ url_for('catalog') }}">Смотреть каталог</a>
+        </div></div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card h-100"><div class="card-body">
+          <h2 class="h5 card-title">Личный кабинет</h2>
+          <p class="card-text">Для просмотра страницы нужен вход.</p>
+          <a class="btn btn-outline-primary" href="{{ url_for('account') }}">Открыть кабинет</a>
+        </div></div>
+      </div>
+    </div>
+    <p class="mt-4"><a href="{{ url_for('home') }}">На главную</a></p>
+  </main>
+{% endblock %}

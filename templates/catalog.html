@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Каталог{% endblock %}
+{% block content %}
+  <main>
+    <h1>Каталог тем</h1>
+    <ul>
+      {% for book in books %}
+        <li><strong>{{ book.title }}</strong> — {{ book.topic }}</li>
+      {% else %}
+        <li>Каталог пуст.</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('home') }}">На главную</a>
+  </main>
+{% endblock %}
